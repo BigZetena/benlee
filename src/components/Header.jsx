@@ -29,7 +29,7 @@ export const Header = () => {
             {/* Social Links */}
             <div className="flex items-center space-x-4 sm:space-x-6">
               <a
-                href="https://t.me/benleesoundsamaizing"
+                href="https://t.me/BenLeeSoundsamazing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xl sm:text-3xl hover:text-purple-300 transition duration-300"
@@ -58,9 +58,9 @@ export const Header = () => {
           {/* Main Content */}
           <div className="flex-1 flex flex-col justify-center  px-4 sm:px-12 lg:px-24">
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-wider drop-shadow-md leading-tight">
-              Из <span className="text-[#C179FF]">идеи</span> создаем
+              Из <span className="text-[#9b61ce]">идеи</span> создаем
               <br />
-              <span className="text-[#C179FF] text-4xl sm:text-7xl lg:text-8xl">
+              <span className="text-[#9b61ce] text-4xl sm:text-7xl lg:text-8xl">
                 ВИБРАЦИИ
               </span>
             </h1>
@@ -89,9 +89,9 @@ export const Header = () => {
 
         {/* Content */}
         <h2 className="relative text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-wider drop-shadow-md max-w-max py-10 sm:py-20 lg:py-32 mx-auto">
-          <span className="text-[#C179FF] glow">Атмосфера</span> и{" "}
-          <span className="text-[#C179FF] glow">эмоции</span> <br />
-          для <span className="text-[#C179FF] glow">каждого</span> проекта
+          <span className="text-[#9b61ce] ">Атмосфера</span> и{" "}
+          <span className="text-[#9b61ce] ">эмоции</span> <br />
+          для <span className="text-[#9b61ce] ">каждого</span> проекта
         </h2>
       </div>
     </>

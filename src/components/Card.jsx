@@ -1,58 +1,63 @@
 import { useState } from "react";
 import { COLORS } from "../App";
 
-export const Card = ({ title, description, bgSrc }) => {
+export const Card = ({ title, description, bgSrc, flipp = true }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlip = () => setIsFlipped(!isFlipped);
 
   return (
     <div
-      className="relative  rounded-lg shadow-lg cursor-pointer w-full  mx-auto h-[500px] overflow-hidden"
-      onClick={handleFlip}
+      className={`hover:text-[#c684ff] relative rounded-lg shadow-lg cursor-pointer w-full mx-auto h-[500px]  transition-all overflow-hidden group `}
+      onClick={flipp && handleFlip}
+      style={{
+        perspective: "1000px",
+      }}
     >
-      {/* Card Container */}
       <div
-        className={`relative w-full h-full card-container ${
-          isFlipped ? "flipped" : ""
+        className={`relative w-full h-full transition-transform duration-500 ease-in-out transform ${
+          isFlipped ? "rotate-y-180" : ""
         }`}
         style={{
-          perspective: "1000px",
+          transformStyle: "preserve-3d",
         }}
       >
         {/* Front Side */}
         <div
-          className={`absolute w-full h-full flex flex-col justify-center items-center card-side bg-center bg-cover rounded-lg shadow-inner transition-opacity duration-500 ${
-            isFlipped ? "opacity-0" : "opacity-100"
+          className={` absolute w-full h-full bg-center bg-cover flex flex-col justify-center items-center rounded-lg shadow-inner transition-opacity duration-500 ease-in-out ${
+            isFlipped ? "opacity-50" : "opacity-100"
           }`}
           style={{
-            backfaceVisibility: "hidden",
             backgroundImage: `url(${bgSrc})`,
             backgroundColor: COLORS.almostBlack,
+            backfaceVisibility: "hidden",
           }}
         >
-          {/* Overlay for Blur and Darkness */}
-          <div className="absolute inset-0 bg-black bg-opacity-20 backdrop-blur-0 rounded-lg"></div>
-          <div className="relative z-10 text-center px-6">
-            <h2 className="text-4xl font-bold text-white">{title}</h2>
-            <p className="mt-4  text-gray-300">Нажмите, чтобы узнать больше</p>
+          <div
+            className={`transition-all duration-300 relative z-10 text-center p-10 rounded-md   bg-black/50 backdrop-blur-sm  ${
+              isFlipped && "opacity-0"
+            }
+              `}
+          >
+            <h2 className={`text-4xl font-bold text-white`}>{title}</h2>
+            <p className="mt-4  px-4 py-2  rounded-md ">
+              Нажмите, чтобы узнать больше
+            </p>
           </div>
         </div>
 
         {/* Back Side */}
         <div
-          className={`bg-gray-50 text-black absolute w-full h-full  card-side p-4 sm:p-8 rounded-lg transition-transform duration-500`}
-          style={{
-            transform: "rotateY(180deg)",
-            backfaceVisibility: "hidden",
-            // backgroundColor: COLORS.almostBlack,
-            color: COLORS.almostBlack,
-          }}
+          className={`absolute z-20 w-full h-full bg-white text-black flex flex-col justify-center items-center p-8 font-sans rounded-lg shadow-lg transition-all duration-500 ease-in-out ${
+            isFlipped ? "opacity-100 scale-105" : "opacity-0 scale-100"
+          }`}
         >
-          <h2 className="text-4xl font-bold mb-4 sm:mb-8 w-full">{title}</h2>
-          <div className="font-medium  text-black  text-sm sm:text-lg">
+          <h2 className="md:text-4xl text-lg font-bold text-[#9b61ce] mb-4">
+            {title}
+          </h2>
+          <p className="font-medium text-black md:text-lg text-sm">
             {description}
-          </div>
+          </p>
         </div>
       </div>
     </div>

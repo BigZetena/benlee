@@ -90,11 +90,19 @@ function App() {
                 </>
               }
             />
-            <Card
-              bgSrc="port.jpg"
-              title="Портфолио"
-              description="Портфолио нашего лучшего продакшена! Ознакомьтесь с примерами нашей работы."
-            />
+            <a
+              href="https://t.me/benleesoundsamaizing"
+              className="hover:text-purple-400 flex gap-2 items-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Card
+                flipp={false}
+                bgSrc="port.jpg"
+                title="Работы"
+                description="Портфолио нашего лучшего продакшена! Ознакомьтесь с примерами нашей работы."
+              />
+            </a>
           </div>
         </main>
         {/* Call to Action */}
@@ -111,7 +119,7 @@ function App() {
           <ul className="flex justify-center space-x-6 text-gray-400">
             <li>
               <a
-                href="https://t.me/benleesoundsamaizing"
+                href="https://t.me/BenLeeSoundsamazing"
                 className="hover:text-purple-400 flex gap-2 items-center"
                 target="_blank"
                 rel="noopener noreferrer"
