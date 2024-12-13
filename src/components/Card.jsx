@@ -9,7 +9,7 @@ export const Card = ({ title, description, bgSrc, flipp = true }) => {
   return (
     <div
       className={`hover:text-[#c684ff] relative rounded-lg shadow-lg cursor-pointer w-full mx-auto h-[500px]  transition-all overflow-hidden group `}
-      onClick={flipp && handleFlip}
+      onClick={flipp ? handleFlip : () => {}}
       style={{
         perspective: "1000px",
       }}
@@ -35,7 +35,7 @@ export const Card = ({ title, description, bgSrc, flipp = true }) => {
         >
           <div
             className={`transition-all duration-300 relative z-10 text-center p-10 rounded-md   bg-black/50 backdrop-blur-sm  ${
-              isFlipped && "opacity-0"
+              isFlipped ? "opacity-0" : ""
             }
               `}
           >
@@ -55,9 +55,9 @@ export const Card = ({ title, description, bgSrc, flipp = true }) => {
           <h2 className="md:text-4xl text-lg font-bold text-[#9b61ce] mb-4">
             {title}
           </h2>
-          <p className="font-medium text-black md:text-lg text-sm">
+          <div className="font-medium text-black md:text-lg text-sm">
             {description}
-          </p>
+          </div>
         </div>
       </div>
     </div>
